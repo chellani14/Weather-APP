@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<div class="container">
+	<div class="container__item">
+		<form class="form"></form>
+		<form class="form">
+			<input type="email" id="in" class="form__field" placeholder="Enter City" name="CityName"
+				[(ngModel)]="CityName" />
+			<button type="button" class="btn btn--primary btn--inside uppercase" (click)='getWeather()'>Get Weather</button>
+		
+		</form>
+		
+		<form id="form2">
+			
+			<h2>{{Delhi}}</h2>
+			
+			<h3><img src="http://openweathermap.org/img/w/{{weatherObj.list[0].weather[0].icon}}.png" height="70px"
+					width="80px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b
+					style="font-size:18px; ">{{weatherObj.list[0].weather[0].main}} </b> </h3>
+			<h1>{{weatherObj.list[0].main.temp}}<sup style="font-size:25px;">&nbsp;O</sup>c</h1>
+			<h3><i class="fas fa-arrow-up"> {{weatherObj.list[0].main.temp_max}}</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-down">
+					{{weatherObj.list[0].main.temp_min}}</i></h3>
+					<br><br><br><br><br><br><br><br><br>
+					<table>
+						<tr>
+							<th> {{weatherObj.list[5].dt_txt | date :'EEEE'}}</th>
+							<th>{{weatherObj.list[15].dt_txt | date :'EEEE'}}</th>
+								<th>{{weatherObj.list[25].dt_txt | date :'EEEE'}}</th> 
+								<th>{{weatherObj.list[30].dt_txt | date :'EEEE'}}</th>
+								<th>{{weatherObj.list[39].dt_txt | date :'EEEE'}}</th>
+							</tr>
+							<tr>
+									<th><img src="http://openweathermap.org/img/w/{{weatherObj.list[5].weather[0].icon}}.png" ></th>
+									<th><img src="http://openweathermap.org/img/w/{{weatherObj.list[15].weather[0].icon}}.png"></th>
+										<th><img src="http://openweathermap.org/img/w/{{weatherObj.list[25].weather[0].icon}}.png"></th> 
+										<th><img src="http://openweathermap.org/img/w/{{weatherObj.list[30].weather[0].icon}}.png"></th>
+										<th><img src="http://openweathermap.org/img/w/{{weatherObj.list[39].weather[0].icon}}.png"></th>
+									</tr>
+									<tr >
+											<th ><h4> <i class="fas fa-arrow-up"> {{weatherObj.list[5].main.temp_max}}</i></h4></th>
+										<th  ><h4> <i class="fas fa-arrow-up"> {{weatherObj.list[15].main.temp_max }}</i></h4></th>
+										<th  ><h4> <i class="fas fa-arrow-up"> {{weatherObj.list[25].main.temp_max}}</i></h4></th> 
+										<th  ><h4> <i class="fas fa-arrow-up">{{weatherObj.list[30].main.temp_max }}</i></h4></th>
+										<th  ><h4>  <i class="fas fa-arrow-up">{{weatherObj.list[39].main.temp_max}}</i></h4></th>
+									</tr>
+									<tr>
+											<th><h6><i class="fas fa-arrow-down"> {{weatherObj.list[5].main.temp_min}}</i></h6></th>
+											<th><h6><i class="fas fa-arrow-down"> {{weatherObj.list[15].main.temp_min}}</i></h6></th>
+											<th><h6><i class="fas fa-arrow-down"> {{weatherObj.list[25].main.temp_min}}</i></h6></th>
+											<th><h6><i class="fas fa-arrow-down"> {{weatherObj.list[30].main.temp_min}}</i></h6></th>
+											<th><h6><i class="fas fa-arrow-down"> {{weatherObj.list[39].main.temp_min}}</i></h6></th>
+										</tr>
+								<br><br><b></b>
+					</table>
+					<table >
+							<h2>Details</h2>
+										<tr>
+												<td  rowspan="4"><h1><i class="fas fa-bolt"  ></i></h1></td>
+													<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														Wind:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+													<td>{{weatherObj.list[0].wind.speed}} Km/hr</td>
+													
+												</tr>
+												<tr>
+														<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																Humidity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+													<td> {{weatherObj.list[0].main.humidity}}</td>
+												</tr>
+												<tr>
+														<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																Pressure:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+													<td> {{weatherObj.list[0].main.pressure}}</td>
+												</tr>
+												<tr>
+														<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															Description	:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+													<td>{{weatherObj.list[0].weather[0].main}}</td>
+												</tr>
+							
+							
+					
+											</table>
+
+		
+		
+
+		</form>
+
+	</div>
+
+	<div class="container__item container__item--bottom">
+
+	</div>
+</div>
